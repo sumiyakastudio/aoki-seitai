@@ -7,8 +7,8 @@
 /* ---------- 0. トークン ---------- */
 :root{
   --bg:#fff; --bg-soft:#f5f5f5; --bg-mid:#efefef;
-  --ink:#333; --ink-mid:#767676; --ink-sub:#a3a3a3; --dark:#2f2f33;
-  --rule:#e5e5e5; --rule-ink:#333;
+  --ink:#333; --ink-mid:#6d6d6d; --ink-sub:#a3a3a3; --dark:#2f2f33;
+  --rule:#e5e5e5; --rule-ink:#333; --error:#a0513d;
   --font:"Shippori Mincho","Noto Serif JP",serif;
   --font-num:"Barlow","Shippori Mincho",sans-serif;
   --w-full:1400px; --w-main:1200px; --w-text:700px; --w-mid:860px;
@@ -39,6 +39,7 @@ address{ font-style:normal; }
 table{ border-collapse:collapse; width:100%; }
 strong{ font-weight:500; }
 :focus-visible{ outline:1px solid var(--ink); outline-offset:4px; }
+.l-footer :focus-visible{ outline:2px solid #fff; }
 .u-skip{ position:absolute; left:12px; top:-80px; z-index:10000; padding:12px 20px; background:var(--ink); color:#fff; font-size:13px; letter-spacing:.08em; }
 .u-skip:focus{ top:12px; }
 .u-vh{ position:absolute!important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0; }
@@ -185,6 +186,8 @@ h1,h2,h3,h4{ font-family:var(--font); font-weight:400; color:var(--ink); letter-
 .c-spec__row{ display:grid; grid-template-columns:200px 1fr; gap:0 32px; padding:26px 0; border-bottom:1px solid var(--rule); }
 .c-spec__key{ font-size:14px; letter-spacing:.08em; color:var(--ink); }
 .c-spec__val{ font-size:15px; line-height:30px; }
+.c-spec__val a{ display:inline-block; padding:4px 0; border-bottom:1px solid var(--rule); transition:border-color .25s; }
+.c-spec__val a:hover{ border-bottom-color:var(--ink); }
 .c-spec__val .c-note{ margin-top:6px; }
 .c-spec--narrow .c-spec__row{ grid-template-columns:140px 1fr; }
 @media (max-width:767px){
@@ -206,7 +209,7 @@ h1,h2,h3,h4{ font-family:var(--font); font-weight:400; color:var(--ink); letter-
 .c-steps{ counter-reset:step; border-top:1px solid var(--rule); }
 .c-steps__item{ counter-increment:step; display:grid; grid-template-columns:92px 1fr; gap:0 40px; padding:40px 0; border-bottom:1px solid var(--rule); }
 .c-steps__item::before{ content:counter(step,decimal-leading-zero); font-family:var(--font-num); font-size:38px; line-height:1; letter-spacing:.02em; color:var(--ink); }
-.c-steps__title{ font-size:20px; line-height:32px; letter-spacing:.06em; }
+.c-steps__title{ font-size:20px; line-height:30px; letter-spacing:.06em; }
 .c-steps__time{ display:inline-block; margin-left:16px; font-family:var(--font-num); font-size:12px; letter-spacing:.06em; color:var(--ink-mid); }
 .c-steps__text{ margin-top:10px; font-size:14px; line-height:30px; }
 .c-steps--media .c-steps__item{ grid-template-columns:92px 1fr 300px; }
@@ -229,7 +232,7 @@ h1,h2,h3,h4{ font-family:var(--font); font-weight:400; color:var(--ink); letter-
 /* ---------- 11. 声（引用） ---------- */
 .c-voice{ padding:48px 0; border-bottom:1px solid var(--rule); }
 .c-voice:first-child{ border-top:1px solid var(--rule); }
-.c-voice__quote{ font-size:22px; line-height:40px; letter-spacing:.06em; }
+.c-voice__quote{ font-size:22px; line-height:34px; letter-spacing:.06em; }
 .c-voice__text{ max-width:var(--w-text); margin-top:20px; font-size:14px; line-height:30px; }
 .c-voice__meta{ margin-top:20px; font-size:12px; letter-spacing:.1em; color:var(--ink-mid); }
 .c-voice__meta strong{ font-family:var(--font-num); font-weight:400; margin-right:10px; }
@@ -285,8 +288,8 @@ a.c-index__item:hover{ background:var(--bg-soft); }
 /* ---------- 15. 線画（guntûの間取り図の翻訳） ---------- */
 .c-draw{ width:100%; height:auto; }
 .c-draw .ln{ fill:none; stroke:var(--ink); stroke-width:1; vector-effect:non-scaling-stroke; }
-.c-draw .ln-thin{ fill:none; stroke:var(--ink-sub); stroke-width:1; vector-effect:non-scaling-stroke; }
-.c-draw .ln-dash{ fill:none; stroke:var(--ink-sub); stroke-width:1; stroke-dasharray:3 4; vector-effect:non-scaling-stroke; }
+.c-draw .ln-thin{ fill:none; stroke:var(--ink-mid); stroke-width:1; vector-effect:non-scaling-stroke; }
+.c-draw .ln-dash{ fill:none; stroke:var(--ink); stroke-width:1; stroke-dasharray:3 4; vector-effect:non-scaling-stroke; }
 .c-draw text{ font-family:var(--font); font-size:11px; letter-spacing:.06em; fill:var(--ink); }
 .c-draw .num{ font-family:var(--font-num); font-size:12px; fill:var(--ink); }
 
@@ -314,9 +317,9 @@ a.c-index__item:hover{ background:var(--bg-soft); }
 .c-form__agree input{ width:16px; height:16px; margin:0; accent-color:var(--ink); }
 .c-form__agree a{ text-decoration:underline; text-underline-offset:4px; }
 .c-form__hp{ position:absolute; left:0; top:0; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; }
-.c-form__error{ display:none; margin-top:8px; font-size:12px; color:#a0513d; }
+.c-form__error{ display:none; margin-top:8px; font-size:12px; color:var(--error); }
 .c-form__field.is-error .c-form__error{ display:block; }
-.c-form__field.is-error .c-form__input,.c-form__field.is-error .c-form__textarea{ border-bottom-color:#a0513d; }
+.c-form__field.is-error .c-form__input,.c-form__field.is-error .c-form__textarea{ border-bottom-color:var(--error); }
 .c-form__done{ padding:60px 0; text-align:center; }
 @media (max-width:767px){ .c-form__field{ padding:24px 0; } .c-form__submit{ width:100%; } }
 

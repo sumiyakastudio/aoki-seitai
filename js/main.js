@@ -2,7 +2,6 @@
 (function () {
   'use strict';
   var doc = document, html = doc.documentElement, body = doc.body;
-  var REDUCE = false; /* prefers-reduced-motion は無視する（フロー書§1③の裁定）。 */
 
   /* ---- 撮影モード（?shot=） ---- */
   if (/[?&]shot(=|&|$)/.test(location.search)) { html.classList.add('is-shot'); }
@@ -57,7 +56,7 @@
     }
   });
 
-  /* ---- reveal（アンカー：fade-up 20px / 800ms / ease・セクション単位・一度だけ） ---- */
+  /* ---- reveal（アンカー guntû はスクロール演出をほぼ持たない：opacity のみ 1.2s・一度だけ） ---- */
   var revealEls = doc.querySelectorAll('[data-reveal]');
   doc.querySelectorAll('[data-stagger]').forEach(function (group) {
     var i = 0;
@@ -77,15 +76,6 @@
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     revealEls.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ---- マーキー：画面外では止める ---- */
-  var tracks = doc.querySelectorAll('.c-marquee__track');
-  if (tracks.length && 'IntersectionObserver' in window) {
-    var mio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { en.target.classList.toggle('is-paused', !en.isIntersecting); });
-    }, { threshold: 0 });
-    tracks.forEach(function (t) { mio.observe(t); });
   }
 
   /* ---- FAQ アコーディオン ---- */
