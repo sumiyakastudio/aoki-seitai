@@ -1,0 +1,47 @@
+/* page-postpartum.css v2 — 産後の不調
+   アンカー guntû。区切りは 1px 罫のみ。色は base.css の変数だけを使う（直書き禁止）。 */
+
+/* ---- ① チェック：見出しの下にリードをぶら下げ、縦罫の位置で揃える ---- */
+.p-pp-check{ padding:var(--s-12) 0 var(--s-8); }
+.p-pp-check__head{ margin-bottom:var(--s-6); }
+.p-pp-check__lead{ max-width:var(--w-text); margin-top:34px; padding-left:34px; font-size:14px; line-height:30px; }
+.p-pp-check__foot{ max-width:var(--w-text); margin-top:44px; font-size:14px; line-height:32px; }
+@media (max-width:767px){
+  .p-pp-check__lead{ padding-left:24px; margin-top:26px; }
+}
+
+/* ---- ② 考え方：淡地の帯。読み物は右へ寄せ、左に余白を残す ---- */
+.p-pp-view{ padding:var(--s-12) 0; }
+.p-pp-view__body{ max-width:var(--w-text); margin:var(--s-6) 0 0 auto; }
+.p-pp-view__body p{ font-size:15px; line-height:36px; letter-spacing:.07em; }
+.p-pp-view__body p + p{ margin-top:30px; }
+@media (max-width:1023px){
+  .p-pp-view__body{ margin-left:0; }
+}
+
+/* ---- ③ アプローチ：番号つきの三段＋院内の線画（情報として置く） ---- */
+.p-pp-approach{ padding:var(--s-14) 0 var(--s-10); }
+.p-pp-approach__list{ margin-top:var(--s-6); }
+.p-pp-approach__list .c-steps__text{ max-width:var(--w-text); }
+.p-pp-plan{ margin-top:var(--s-10); }
+.p-pp-plan__title{ margin-bottom:var(--s-4); }
+.p-pp-plan__spec .c-spec__val{ font-size:14px; line-height:30px; }
+.p-pp-plan__spec .c-note{ display:block; margin-top:6px; }
+.p-pp-plan__fig{ margin:0; }
+.p-pp-plan__fig .c-draw{ max-width:420px; }
+.p-pp-plan__cap{ max-width:420px; margin-top:18px; }
+@media (max-width:1023px){
+  .p-pp-plan__fig .c-draw, .p-pp-plan__cap{ max-width:none; }
+}
+/* 幅が縮むと線画の和文が小さくなりすぎるため、SPだけ級数を上げる（枠には収まる範囲） */
+@media (max-width:767px){
+  .p-pp-plan__fig .c-draw text{ font-size:13px; }
+}
+
+/* ---- ④ 声 ---- */
+.p-pp-voice{ padding:var(--s-10) 0 var(--s-8); }
+.p-pp-voice__list{ margin-top:var(--s-6); }
+
+/* ---- ⑤ 回遊 ---- */
+.p-pp-related{ padding:var(--s-8) 0 var(--s-12); }
+.p-pp-related__list{ margin-top:var(--s-6); }

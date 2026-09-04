@@ -1,0 +1,32 @@
+/* page-price.css v2 — アンカー guntû。数字は級数で立て、囲いは作らない */
+
+/* ---- 共通：ラベル列（見出し）＋右に帳面 ---- */
+.p-pr-grid{ display:grid; grid-template-columns:300px 1fr; gap:0 72px; align-items:start; }
+
+/* ---- ① 施術料金（このページの主役＝数字） ---- */
+.p-pr-fee{ padding:var(--s-12) 0 var(--s-10); }
+.p-pr-fee .c-price__row{ padding:38px 0; }
+.p-pr-fee .c-price__name{ font-size:19px; }
+.p-pr-fee .c-price__val{ font-size:30px; }
+.p-pr-fee__text{ max-width:var(--w-text); margin-top:var(--s-5); }
+
+/* ---- ② お支払いと予約について ---- */
+.p-pr-pay{ padding:var(--s-10) 0 var(--s-12); }
+
+/* ---- ③ ご来院の前に ---- */
+.p-pr-next{ padding:var(--s-12) 0 var(--s-14); }
+.p-pr-next__list{ margin-top:var(--s-6); }
+
+/* ---- タブレット ---- */
+@media (max-width:1023px){
+  .p-pr-grid{ grid-template-columns:1fr; gap:36px 0; }
+  .p-pr-fee .c-price__row{ padding:32px 0; }
+}
+
+/* ---- スマートフォン ---- */
+@media (max-width:767px){
+  .p-pr-fee .c-price__row{ padding:24px 0; }
+  .p-pr-fee .c-price__name{ font-size:17px; }
+  .p-pr-fee .c-price__val{ font-size:24px; }
+  .p-pr-fee__text{ margin-top:var(--s-4); }
+}

@@ -1,0 +1,61 @@
+/* =====================================================================
+   page-access.css v2 — アクセス
+   アンカー＝guntû。帳面組み（ラベル：値）と1pxの線画。囲まない・色を足さない。
+   色は base.css の変数のみ。角丸・影・カード・アクセント色は使わない。
+   ===================================================================== */
+
+/* ---- 見出し帯の全幅写真（1400で断ち落とす） ---- */
+.p-head__visual img{ height:520px; object-fit:cover; object-position:center 55%; }
+
+/* ---- ① 院のご案内（左に見出し／右に帳面組み） ---- */
+.p-info{ padding:var(--s-12) 0 var(--s-10); }
+.p-info__grid{ display:grid; grid-template-columns:340px 1fr; gap:0 72px; align-items:start; }
+.p-info__tel{ display:inline-block; font-size:28px; line-height:36px; }
+
+/* ---- ② 地図（1px罫の枠で囲むだけ・角丸も影も付けない） ---- */
+.p-map{ padding:var(--s-8) 0 var(--s-12); }
+.p-map__head{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:20px 40px; }
+.p-map__link{ padding-bottom:8px; }
+.p-map__frame{ margin-top:var(--s-6); border:1px solid var(--rule); }
+.p-map__frame iframe{ width:100%; height:520px; border:0; }
+
+/* ---- ③ 駅からの道順（1pxの線画マップ＋写真＋3ステップ） ---- */
+.p-route{ padding:var(--s-10) 0 var(--s-12); }
+.p-route__head{ display:grid; grid-template-columns:1fr 460px; gap:0 80px; align-items:end; }
+.p-route__head .c-lead{ padding-bottom:6px; }
+.p-route__fig{ margin-top:var(--s-6); padding:var(--s-5) 0 var(--s-4);
+  border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+/* 道順の線は「建物」と同じ濃さで引く（--ink-sub のままだと帯の上で消える） */
+.p-route__draw .ln-dash{ stroke:var(--ink); stroke-dasharray:6 5; }
+.p-route__draw--pc .c-draw{ max-width:960px; }
+.p-route__draw--sp{ display:none; }
+.p-route__draw--sp .c-draw{ max-width:400px; }
+.p-route__cap{ margin-top:var(--s-3); }
+.p-route__grid{ margin-top:var(--s-8); }
+.p-route__photo figcaption{ max-width:400px; }
+
+/* ---- ④ ご来院にあたって ---- */
+.p-before{ padding:var(--s-10) 0 var(--s-14); }
+.p-before__grid{ display:grid; grid-template-columns:340px 1fr; gap:0 72px; align-items:start; }
+
+/* ---- タブレット ---- */
+@media (max-width:1023px){
+  .p-head__visual img{ height:380px; }
+  .p-info__grid, .p-before__grid, .p-route__head{ grid-template-columns:1fr; gap:26px 0; align-items:start; }
+  .p-route__head .c-lead{ padding-bottom:0; }
+  .p-map__frame iframe{ height:400px; }
+  .p-route__draw--pc{ display:none; }
+  .p-route__draw--sp{ display:block; }
+  .p-route__grid{ margin-top:var(--s-6); }
+}
+
+/* ---- スマートフォン ---- */
+@media (max-width:767px){
+  .p-head__visual img{ height:280px; }
+  .p-info__tel{ font-size:24px; line-height:32px; }
+  .p-map__head{ align-items:flex-start; }
+  .p-map__link{ padding-bottom:6px; }
+  .p-map__frame iframe{ height:300px; }
+  .p-route__fig{ padding:var(--s-4) 0 var(--s-3); }
+  .p-route__draw--sp .c-draw{ max-width:none; }
+}

@@ -1,0 +1,7 @@
+_rough/
+_build/
+_docs/
+*.ps1
+*.log
+.DS_Store
+Thumbs.db

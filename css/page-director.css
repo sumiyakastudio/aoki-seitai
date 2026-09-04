@@ -1,0 +1,81 @@
+/* =====================================================================
+   page-director.css v2 — 院長紹介
+   アンカー＝guntû。全幅写真と1200pxテキストの密度差／区切りは1px罫だけ。
+   色は base.css の変数のみ。角丸・影・カード・アクセント色は使わない。
+   ===================================================================== */
+
+/* ---- 見出し帯の全幅写真（1400で断ち落とす） ---- */
+.p-head__visual img{ height:620px; object-fit:cover; object-position:center 30%; }
+
+/* ---- ① 院長からの手紙（左に詰めた見出し／右に読み物700px弱） ---- */
+.p-letter{ padding:var(--s-12) 0 var(--s-14); }
+.p-letter__grid{ display:grid; grid-template-columns:1fr 640px; gap:0 72px; align-items:start; }
+.p-letter__head{ padding-top:4px; }
+.p-letter__body p{ font-size:16px; line-height:38px; letter-spacing:.08em; }
+.p-letter__body p + p{ margin-top:30px; }
+.p-letter__sign{ margin-top:48px; padding-top:26px; border-top:1px solid var(--rule);
+  font-size:14px; line-height:30px; letter-spacing:.14em; }
+
+/* ---- ② 3つの約束（カードにしない＝罫と大きな数字だけ） ---- */
+.p-promise{ padding:var(--s-10) 0 var(--s-12); }
+.p-promise__head{ display:grid; grid-template-columns:1fr 460px; gap:0 80px; align-items:end; }
+.p-promise__head .c-lead{ padding-bottom:4px; }
+.p-promise__list{ margin-top:var(--s-6); }
+.p-promise__list .c-steps__item > div{ display:grid; grid-template-columns:380px 1fr; gap:0 56px; align-items:start; }
+.p-promise__list .c-steps__title{ font-size:22px; line-height:36px; }
+.p-promise__list .c-steps__text{ margin-top:4px; }
+
+/* ---- ③ プロフィール（右に1px縦罫で写真を仕切る） ---- */
+.p-profile{ padding:var(--s-12) 0 var(--s-10); }
+.p-profile__grid{ display:grid; grid-template-columns:1fr 460px; gap:0; align-items:start; }
+.p-profile__spec{ margin-top:var(--s-6); }
+.p-profile__sub{ margin-top:var(--s-8); padding-bottom:18px; letter-spacing:.14em; }
+.p-profile__hist .c-spec__key{ font-family:var(--font-num); font-size:14px; letter-spacing:.04em; }
+.p-profile__aside{ padding-left:80px; border-left:1px solid var(--rule); }
+.p-profile__aside img{ width:100%; height:auto; }
+.p-profile__name{ margin-top:24px; padding-top:20px; border-top:1px solid var(--rule);
+  font-size:15px; letter-spacing:.12em; }
+.p-profile__aside .c-cap{ margin-top:8px; }
+
+/* ---- ④ 保有資格 ---- */
+.p-license{ padding:var(--s-8) 0 var(--s-14); }
+.p-license__grid{ display:grid; grid-template-columns:340px 1fr; gap:0 72px; align-items:start; }
+.p-license__list{ border-top:1px solid var(--rule); }
+.p-license__list li{ padding:24px 0; border-bottom:1px solid var(--rule);
+  font-size:17px; line-height:32px; letter-spacing:.06em; }
+.p-license__note{ margin-top:26px; max-width:var(--w-text); }
+
+/* ---- タブレット ---- */
+@media (max-width:1199px){
+  .p-letter__grid{ grid-template-columns:1fr; gap:36px 0; }
+  .p-letter__head{ padding-top:0; }
+  .p-letter__body{ max-width:var(--w-text); }
+  .p-profile__grid{ grid-template-columns:1fr; gap:0; }
+  .p-profile__aside{ margin-top:var(--s-10); padding-left:0; border-left:0; }
+  .p-profile__aside img,
+  .p-profile__name,
+  .p-profile__aside .c-cap{ max-width:380px; }
+}
+@media (max-width:1023px){
+  .p-head__visual img{ height:420px; }
+  .p-promise__head, .p-license__grid{ grid-template-columns:1fr; gap:26px 0; align-items:start; }
+  .p-promise__head .c-lead{ padding-bottom:0; }
+  .p-promise__list .c-steps__item > div{ grid-template-columns:1fr; gap:0; }
+  .p-promise__list .c-steps__text{ margin-top:10px; }
+}
+
+/* ---- スマートフォン ---- */
+@media (max-width:767px){
+  .p-head__visual img{ height:300px; }
+  .p-letter__body p{ font-size:15px; line-height:34px; }
+  .p-letter__body p + p{ margin-top:24px; }
+  .p-letter__sign{ margin-top:36px; letter-spacing:.1em; }
+  .p-promise__list .c-steps__title{ font-size:18px; line-height:30px; }
+  .p-profile__sub{ margin-top:var(--s-6); }
+  .p-profile__hist .c-spec__key{ font-size:12px; }
+  .p-profile__aside{ margin-top:var(--s-8); }
+  .p-profile__aside img,
+  .p-profile__name,
+  .p-profile__aside .c-cap{ max-width:none; }
+  .p-license__list li{ padding:18px 0; font-size:15px; line-height:28px; }
+}

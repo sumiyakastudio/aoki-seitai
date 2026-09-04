@@ -1,0 +1,132 @@
+/* page-top.css v2 — アンカー guntû。トップは「大きな写真＋最小のUI」、下へ行くほど密度が上がる */
+
+/* ---- ヒーロー：全幅写真1枚、文字は最小限。中央対称にしない ---- */
+.p-hero{ position:relative; }
+.p-hero__visual{ position:relative; width:100%; height:100vh; height:100svh; min-height:620px; max-height:900px; overflow:hidden; background:var(--bg-mid); }
+.p-hero__visual img{ width:100%; height:100%; object-fit:cover; object-position:52% 46%; animation:heroZoom 14s ease-out both; }
+@keyframes heroZoom{ from{ transform:scale(1.04); } to{ transform:scale(1); } }
+.p-hero__scrim{ position:absolute; inset:0; background:linear-gradient(to top, rgba(35,35,35,.80) 0%, rgba(35,35,35,.64) 20%, rgba(35,35,35,.34) 46%, rgba(35,35,35,.05) 70%, rgba(35,35,35,.14) 100%); }
+.p-hero__copy{ position:absolute; left:var(--gutter); bottom:64px; z-index:2; max-width:660px; padding-left:34px; }
+.p-hero__copy::before{ content:""; position:absolute; left:0; top:8px; width:2px; height:78px; background:#fff; }
+.p-hero__title{ font-size:40px; line-height:60px; letter-spacing:.1em; color:#fff; }
+.p-hero__sub{ margin-top:24px; font-size:14px; line-height:30px; letter-spacing:.08em; color:#fff; }
+.p-hero__side{ position:absolute; right:var(--gutter); bottom:64px; z-index:2; text-align:right; }
+.p-hero__side .c-en{ color:#fff; font-size:11px; letter-spacing:.2em; }
+.p-hero__scroll{ position:absolute; left:50%; bottom:0; z-index:2; width:1px; height:64px; background:rgba(255,255,255,.45); overflow:hidden; }
+.p-hero__scroll::after{ content:""; position:absolute; left:0; top:0; width:1px; height:26px; background:#fff; animation:scrollLine 2.8s ease-in-out infinite; }
+@keyframes scrollLine{ 0%{ transform:translateY(-26px); } 60%,100%{ transform:translateY(64px); } }
+
+/* ---- 導入 ---- */
+.p-intro{ padding:var(--s-12) 0 var(--s-10); }
+.p-intro__grid{ display:grid; grid-template-columns:300px 1fr; gap:0 72px; align-items:start; }
+.p-intro__label{ padding-top:6px; }
+.p-intro__body p{ font-size:17px; line-height:44px; letter-spacing:.08em; }
+.p-intro__body p + p{ margin-top:34px; }
+@media (max-width:1023px){ .p-intro__grid{ grid-template-columns:1fr; gap:34px 0; } .p-intro__body p{ font-size:15px; line-height:38px; } }
+
+/* ---- 症状 ---- */
+.p-symptoms{ padding:var(--s-10) 0 var(--s-12); }
+.p-symptoms__head{ display:grid; grid-template-columns:1fr 460px; gap:0 80px; align-items:end; margin-bottom:var(--s-6); }
+.p-symptoms__foot{ margin-top:44px; display:grid; grid-template-columns:1fr auto; gap:24px 40px; align-items:center; }
+@media (max-width:1023px){ .p-symptoms__head{ grid-template-columns:1fr; gap:24px 0; align-items:start; } .p-symptoms__foot{ grid-template-columns:1fr; justify-items:start; } }
+
+/* ---- 手紙 ---- */
+.p-letter{ padding:var(--s-12) 0 var(--s-14); }
+.p-letter__visual{ margin-bottom:var(--s-8); }
+.p-letter__visual img{ width:100%; height:560px; object-fit:cover; object-position:center 32%; }
+.p-letter__grid{ display:grid; grid-template-columns:1fr 700px; gap:0 80px; align-items:start; }
+.p-letter__body p + p{ margin-top:28px; }
+.p-letter__sign{ margin-top:36px; padding-top:24px; border-top:1px solid var(--rule); font-size:14px; letter-spacing:.1em; }
+@media (max-width:1023px){ .p-letter__grid{ grid-template-columns:1fr; gap:36px 0; } .p-letter__visual img{ height:360px; } }
+@media (max-width:767px){ .p-letter__visual img{ height:260px; } }
+
+/* ---- 約束 ---- */
+.p-promise{ padding:var(--s-10) 0 var(--s-12); }
+.p-promise__list{ margin-top:var(--s-6); border-top:1px solid var(--rule); }
+.p-promise__item{ display:grid; grid-template-columns:92px 1fr 1fr; gap:0 60px; padding:44px 0; border-bottom:1px solid var(--rule); align-items:start; }
+.p-promise__no{ font-family:var(--font-num); font-size:13px; letter-spacing:.14em; color:var(--ink-mid); padding-top:8px; }
+.p-promise__title{ font-size:22px; line-height:36px; letter-spacing:.06em; }
+.p-promise__text{ font-size:14px; line-height:30px; }
+@media (max-width:1023px){ .p-promise__item{ grid-template-columns:64px 1fr; gap:12px 24px; padding:32px 0; } .p-promise__text{ grid-column:2; } .p-promise__title{ font-size:19px; line-height:32px; } }
+
+/* ---- メソッド ---- */
+.p-method{ padding:var(--s-10) 0 var(--s-12); }
+.p-method__list{ margin-top:var(--s-6); }
+.p-method__item{ display:grid; grid-template-columns:1fr 620px; gap:0 80px; align-items:center; padding:var(--s-6) 0; border-top:1px solid var(--rule); }
+.p-method__item:last-child{ border-bottom:1px solid var(--rule); }
+.p-method__item--rev{ grid-template-columns:620px 1fr; }
+.p-method__item--rev .p-method__visual{ order:-1; }
+.p-method__no{ font-family:var(--font-num); font-size:13px; letter-spacing:.14em; color:var(--ink-mid); }
+.p-method__title{ margin-top:14px; font-size:24px; line-height:40px; letter-spacing:.06em; }
+.p-method__text{ margin-top:16px; max-width:520px; font-size:14px; line-height:30px; }
+.p-method__visual img{ width:100%; height:400px; object-fit:cover; }
+@media (max-width:1023px){
+  .p-method__item, .p-method__item--rev{ grid-template-columns:1fr; gap:28px 0; padding:var(--s-5) 0; }
+  .p-method__item--rev .p-method__visual{ order:0; }
+  .p-method__title{ font-size:20px; line-height:34px; }
+  .p-method__visual img{ height:260px; }
+}
+
+/* ---- 流れ（線画つき） ---- */
+.p-flow{ padding:var(--s-10) 0 var(--s-12); }
+.p-flow__grid{ display:grid; grid-template-columns:1fr 420px; gap:0 80px; align-items:start; margin-top:var(--s-6); }
+.p-flow__aside{ padding-left:80px; border-left:1px solid var(--rule); }
+.p-flow__total{ margin-top:32px; padding-top:24px; border-top:1px solid var(--rule); font-size:14px; letter-spacing:.08em; }
+.p-flow__total strong{ font-family:var(--font-num); font-size:22px; margin:0 6px; font-weight:400; }
+@media (max-width:1023px){ .p-flow__grid{ grid-template-columns:1fr; gap:44px 0; } .p-flow__aside{ padding-left:0; border-left:0; padding-top:36px; border-top:1px solid var(--rule); } }
+
+/* ---- 料金 ---- */
+.p-price{ padding:var(--s-10) 0 var(--s-12); }
+.p-price__grid{ display:grid; grid-template-columns:300px 1fr; gap:0 72px; align-items:start; }
+.p-price__foot{ margin-top:32px; display:grid; grid-template-columns:1fr auto; gap:20px 40px; align-items:center; }
+@media (max-width:1023px){ .p-price__grid{ grid-template-columns:1fr; gap:34px 0; } .p-price__foot{ grid-template-columns:1fr; justify-items:start; } }
+
+/* ---- 声 ---- */
+.p-voices{ padding:var(--s-10) 0 var(--s-12); }
+.p-voices__list{ margin-top:var(--s-6); }
+
+/* ---- 症状への回遊 ---- */
+.p-guide{ padding:var(--s-10) 0 var(--s-14); }
+.p-guide__list{ margin-top:var(--s-6); }
+
+/* ---- アクセス ---- */
+.p-access{ padding:var(--s-10) 0 var(--s-12); }
+.p-access__grid{ display:grid; grid-template-columns:1fr 560px; gap:0 80px; align-items:start; margin-top:var(--s-6); }
+.p-access__map{ border:1px solid var(--rule); }
+.p-access__map iframe{ width:100%; height:460px; border:0; display:block; }
+@media (max-width:1023px){ .p-access__grid{ grid-template-columns:1fr; gap:40px 0; } .p-access__map iframe{ height:320px; } }
+
+@media (max-width:767px){
+  .p-hero__visual{ min-height:520px; }
+  .p-hero__copy{ left:var(--gutter); right:var(--gutter); bottom:52px; max-width:none; padding-left:22px; }
+  .p-hero__copy::before{ height:60px; }
+  .p-hero__title{ font-size:26px; line-height:44px; letter-spacing:.08em; }
+  .p-hero__sub{ margin-top:18px; font-size:13px; line-height:28px; }
+  .p-hero__side{ display:none; }
+  .p-intro{ padding:var(--s-10) 0 var(--s-8); }
+}
+
+/* ---- 全幅バンド（セクション間の呼吸） ---- */
+.p-band{ max-width:var(--w-full); margin:0 auto; }
+.p-band img{ width:100%; height:460px; object-fit:cover; display:block; }
+@media (max-width:1023px){ .p-band img{ height:320px; } }
+@media (max-width:767px){ .p-band img{ height:220px; } }
+
+/* ---- 院内のご案内（3枚組＋帳面の説明） ---- */
+.p-rooms{ padding:var(--s-10) 0 var(--s-12); }
+.p-rooms__head{ display:grid; grid-template-columns:1fr 520px; gap:0 72px; align-items:end; margin-bottom:var(--s-6); }
+.p-rooms__list{ display:grid; grid-template-columns:repeat(3,1fr); gap:0 40px; }
+.p-rooms__item img{ width:100%; aspect-ratio:3/2; object-fit:cover; }
+.p-rooms__name{ margin-top:18px; padding-top:16px; border-top:1px solid var(--rule); font-size:17px; letter-spacing:.06em; }
+.p-rooms__text{ margin-top:8px; font-size:13px; line-height:28px; color:var(--ink); }
+@media (max-width:1023px){ .p-rooms__head{ grid-template-columns:1fr; gap:24px 0; align-items:start; } .p-rooms__list{ grid-template-columns:1fr; gap:36px 0; } }
+
+/* ---- 道具と養生（静物の3枚＋読み物） ---- */
+.p-tools{ padding:var(--s-10) 0 var(--s-12); }
+.p-tools__grid{ display:grid; grid-template-columns:1fr 700px; gap:0 72px; align-items:start; }
+.p-tools__body p + p{ margin-top:26px; }
+.p-tools__list{ display:grid; grid-template-columns:repeat(3,1fr); gap:0 40px; margin-top:var(--s-8); }
+.p-tools__item img{ width:100%; aspect-ratio:3/2; object-fit:cover; }
+.p-tools__cap{ margin-top:14px; padding-top:14px; border-top:1px solid var(--rule); font-size:12px; line-height:26px; color:var(--ink-mid); }
+.p-tools__cap strong{ display:block; margin-bottom:4px; font-size:15px; font-weight:400; color:var(--ink); letter-spacing:.06em; }
+@media (max-width:1023px){ .p-tools__grid{ grid-template-columns:1fr; gap:34px 0; } .p-tools__list{ grid-template-columns:1fr; gap:32px 0; } }

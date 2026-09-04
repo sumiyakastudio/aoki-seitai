@@ -1,0 +1,42 @@
+/* page-autonomic.css v2 — 自律神経の不調
+   アンカー guntû。区切りは 1px 罫だけ。色は base.css の変数のみを使う（直書き禁止）。 */
+
+/* ---- 見出し帯の写真：縦位置の写真を全幅の帯に断ち落とす ---- */
+.p-head__visual img{ height:460px; object-fit:cover; object-position:center 46%; }
+@media (max-width:1023px){ .p-head__visual img{ height:360px; } }
+@media (max-width:767px){ .p-head__visual img{ height:250px; } }
+
+/* ---- ① こんな症状（左に見出し・右に2段組。中央に寄せない） ---- */
+.p-an-check{ padding:var(--s-12) 0 var(--s-10); }
+.p-an-check__grid{ display:grid; grid-template-columns:360px 1fr; gap:0 72px; align-items:start; }
+.p-an-check__head{ padding-top:4px; }
+.p-an-check__foot{ margin-top:40px; font-size:14px; line-height:30px; }
+@media (max-width:1023px){
+  .p-an-check__grid{ grid-template-columns:1fr; gap:44px 0; }
+  .p-an-check__head .c-note{ max-width:var(--w-text); }
+}
+
+/* ---- ② 当院の考え方（右に線画。仕切りは 1px の縦罫） ---- */
+.p-an-view{ padding:var(--s-10) 0 var(--s-12); }
+.p-an-view__grid{ display:grid; grid-template-columns:1fr 380px; gap:0 80px; align-items:start; }
+.p-an-view__body{ max-width:var(--w-text); margin-top:var(--s-5); }
+.p-an-view__body p + p{ margin-top:28px; }
+.p-an-view__sign{ margin-top:36px; padding-top:24px; border-top:1px solid var(--rule); font-size:14px; letter-spacing:.1em; }
+.p-an-view__aside{ padding-left:80px; border-left:1px solid var(--rule); }
+.p-an-view__aside-text{ margin-top:22px; font-size:13px; line-height:28px; }
+@media (max-width:1023px){
+  .p-an-view__grid{ grid-template-columns:1fr; gap:48px 0; }
+  .p-an-view__aside{ max-width:460px; padding-left:0; padding-top:40px; border-left:0; border-top:1px solid var(--rule); }
+}
+
+/* ---- ③ アプローチ ---- */
+.p-an-method{ padding:var(--s-12) 0 var(--s-10); }
+.p-an-method__head{ display:grid; grid-template-columns:1fr 420px; gap:0 80px; align-items:end; margin-bottom:var(--s-6); }
+@media (max-width:1023px){ .p-an-method__head{ grid-template-columns:1fr; gap:24px 0; align-items:start; } }
+
+/* ---- ④ 患者さまの声 ---- */
+.p-an-voices{ padding:var(--s-10) 0 var(--s-12); }
+.p-an-voices__list{ margin-top:var(--s-6); }
+
+/* ---- ⑤ ほかの症状から探す ---- */
+.p-an-related{ padding:var(--s-12) 0 var(--s-14); }

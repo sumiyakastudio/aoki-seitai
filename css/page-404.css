@@ -1,0 +1,21 @@
+/* page-404.css v2 — アンカー guntû。番号は Barlow で左に置き、見出しは縦罫から吊る。
+   このページは階層を問わず呼ばれるため、参照はすべて絶対パス（HTML側）。色はトークンのみ。 */
+
+.p-404__grid{ display:grid; grid-template-columns:220px 1fr; gap:0 72px; align-items:start; }
+.p-404__code{ font-size:72px; line-height:1; letter-spacing:.04em; color:var(--ink-mid); padding-top:4px; }
+.p-404__btn{ margin-top:var(--s-5); }
+
+.p-404__nav{ padding:var(--s-10) 0 var(--s-12); }
+.p-404__index{ margin-top:var(--s-6); }
+.p-404__note{ margin-top:var(--s-5); }
+.p-404__tel{ margin-left:12px; font-size:18px; color:var(--ink); }
+
+@media (max-width:1023px){
+  .p-404__grid{ grid-template-columns:1fr; gap:28px 0; }
+  .p-404__code{ font-size:52px; padding-top:0; }
+}
+@media (max-width:767px){
+  .p-404__code{ font-size:44px; }
+  .p-404__btn{ margin-top:var(--s-4); }
+  .p-404__tel{ display:block; margin:6px 0 0; }
+}

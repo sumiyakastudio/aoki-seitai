@@ -1,0 +1,39 @@
+/* page-privacy.css v2 — アンカー guntû。700pxの読み物。条項は1px罫で積み、番号だけ Barlow で置く。
+   色は base.css のトークンだけを使う（直書き禁止）。 */
+
+.p-privacy{ padding:var(--s-10) 0 var(--s-8); }
+
+/* ---- 前文 ---- */
+.p-privacy__pre{ font-size:17px; line-height:40px; letter-spacing:.07em; }
+
+/* ---- 条項（罫で積む） ---- */
+.p-privacy__body{ margin-top:var(--s-8); border-top:1px solid var(--rule); }
+.p-privacy__sec{ padding:48px 0; border-bottom:1px solid var(--rule); }
+.p-privacy__no{ font-family:var(--font-num); font-size:12px; letter-spacing:.16em; color:var(--ink-mid); margin-right:18px; }
+.p-privacy__title{ margin-bottom:22px; }
+.p-privacy__text{ font-size:15px; line-height:34px; }
+.p-privacy__text + .p-privacy__text{ margin-top:24px; }
+
+/* 箇条書きの点は打たず、1px の短い罫を引く */
+.p-privacy__list{ margin-top:18px; }
+.p-privacy__list li{ position:relative; padding-left:26px; font-size:14px; line-height:32px; }
+.p-privacy__list li::before{ content:""; position:absolute; left:0; top:16px; width:13px; height:1px; background:var(--ink-mid); }
+.p-privacy__list li + li{ margin-top:8px; }
+.p-privacy__list + .p-privacy__text{ margin-top:24px; }
+
+/* ---- 窓口（帳面組み） ---- */
+.p-privacy__spec{ margin-top:6px; }
+.p-privacy__spec .c-note{ display:block; }
+.p-privacy__mail{ font-family:var(--font-num); letter-spacing:.02em; text-decoration:underline; text-underline-offset:4px; }
+
+.p-privacy__back{ margin-top:var(--s-8); }
+
+@media (max-width:767px){
+  .p-privacy__pre{ font-size:15px; line-height:34px; }
+  .p-privacy__sec{ padding:34px 0; }
+  .p-privacy__title{ margin-bottom:16px; }
+  .p-privacy__no{ margin-right:12px; }
+  .p-privacy__text{ font-size:14px; line-height:32px; }
+  .p-privacy__list li{ line-height:30px; }
+  .p-privacy__list li::before{ top:15px; }
+}

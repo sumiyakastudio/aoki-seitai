@@ -1,0 +1,35 @@
+/* page-neck-shoulder.css v2 — 肩こり・頭痛
+   アンカー guntû。区切りは 1px 罫だけ。色は base.css の変数のみを使う（直書き禁止）。 */
+
+/* ---- 見出し帯の写真は 1400×700 のまま断ち落とす（テキストは1200＝密度の落差） ---- */
+
+/* ---- ① こんな症状（見出しとリードを左右に振り、下に2段組の罫） ---- */
+.p-ns-check{ padding:var(--s-12) 0 var(--s-10); }
+.p-ns-check__head{ display:grid; grid-template-columns:1fr 460px; gap:0 80px; align-items:end; margin-bottom:var(--s-6); }
+.p-ns-check__foot{ margin-top:44px; max-width:var(--w-text); font-size:14px; line-height:30px; }
+@media (max-width:1023px){ .p-ns-check__head{ grid-template-columns:1fr; gap:24px 0; align-items:start; } }
+
+/* ---- ② 当院の考え方（左に見出し・右に本文と帳面） ---- */
+.p-ns-view{ padding:var(--s-10) 0 var(--s-12); }
+.p-ns-view__grid{ display:grid; grid-template-columns:300px 1fr; gap:0 72px; align-items:start; }
+.p-ns-view__body{ max-width:var(--w-text); }
+.p-ns-view__body p + p{ margin-top:28px; }
+.p-ns-view__ledger{ grid-column:2; max-width:var(--w-text); margin-top:var(--s-8); }
+@media (max-width:1023px){
+  .p-ns-view__grid{ grid-template-columns:1fr; gap:36px 0; }
+  .p-ns-view__ledger{ grid-column:1; margin-top:var(--s-6); }
+}
+
+/* ---- ③ アプローチ（淡地の帯。番号は罫の上の Barlow） ---- */
+.p-ns-method{ padding:var(--s-12) 0 var(--s-10); }
+.p-ns-method__head{ display:grid; grid-template-columns:1fr 420px; gap:0 80px; align-items:end; margin-bottom:var(--s-6); }
+.p-ns-method .c-steps__title,
+.p-ns-method .c-steps__text{ max-width:var(--w-text); }
+@media (max-width:1023px){ .p-ns-method__head{ grid-template-columns:1fr; gap:24px 0; align-items:start; } }
+
+/* ---- ④ 患者さまの声 ---- */
+.p-ns-voices{ padding:var(--s-12) 0 var(--s-10); }
+.p-ns-voices__list{ margin-top:var(--s-6); }
+
+/* ---- ⑤ ほかの症状から探す ---- */
+.p-ns-related{ padding:var(--s-10) 0 var(--s-14); }

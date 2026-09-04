@@ -1,0 +1,43 @@
+/* page-lower-back.css v2 — 腰痛
+   アンカー guntû。区切りは 1px 罫のみ。色は base.css の変数だけを使う（直書き禁止）。 */
+
+/* ---- ① チェック：見出しは左、リードは右。中央対称にしない ---- */
+.p-lb-check{ padding:var(--s-12) 0 var(--s-10); }
+.p-lb-check__head{ display:grid; grid-template-columns:1fr 460px; gap:0 80px; align-items:end; margin-bottom:var(--s-6); }
+.p-lb-check__foot{ max-width:var(--w-text); margin-top:44px; font-size:14px; line-height:32px; }
+/* 1200 未満は左列が痩せて見出しが割れるので、早めに積む */
+@media (max-width:1199px){
+  .p-lb-check__head{ grid-template-columns:1fr; gap:24px 0; align-items:start; }
+  .p-lb-check__head .c-lead{ max-width:var(--w-text); }
+}
+
+/* ---- ② 考え方：見出しは細い左列、本文は 700px の読み物 ---- */
+.p-lb-view{ padding:var(--s-10) 0 var(--s-14); }
+.p-lb-view__grid{ display:grid; grid-template-columns:420px 1fr; gap:0 80px; align-items:start; }
+.p-lb-view__body{ max-width:var(--w-text); }
+.p-lb-view__body p{ font-size:15px; line-height:36px; letter-spacing:.07em; }
+.p-lb-view__body p + p{ margin-top:30px; }
+.p-lb-view__cases{ margin-top:var(--s-6); }
+@media (max-width:1023px){
+  .p-lb-view__grid{ grid-template-columns:1fr; gap:36px 0; }
+}
+
+/* ---- ③ アプローチ：淡地の帯。番号は罫の上、写真は右端に揃える ---- */
+.p-lb-approach{ padding:var(--s-12) 0 var(--s-12); }
+.p-lb-approach__list{ margin-top:var(--s-6); }
+.p-lb-approach__list .c-steps__text{ max-width:var(--w-text); }
+.p-lb-approach__foot{ display:grid; grid-template-columns:1fr auto; gap:24px 60px; align-items:start; margin-top:40px; }
+.p-lb-approach__foot .c-note{ max-width:var(--w-text); }
+.p-lb-approach__foot .c-link{ margin-top:6px; white-space:nowrap; }
+@media (max-width:1023px){
+  .p-lb-approach__foot{ grid-template-columns:1fr; justify-items:start; }
+  .p-lb-approach__foot .c-link{ margin-top:0; }
+}
+
+/* ---- ④ 声 ---- */
+.p-lb-voice{ padding:var(--s-10) 0 var(--s-8); }
+.p-lb-voice__list{ margin-top:var(--s-6); }
+
+/* ---- ⑤ 回遊 ---- */
+.p-lb-related{ padding:var(--s-8) 0 var(--s-14); }
+.p-lb-related__list{ margin-top:var(--s-6); }
